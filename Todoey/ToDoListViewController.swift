@@ -17,7 +17,7 @@ class ToDoListViewController: UITableViewController {
         // Do any additional setup after loading the view.
     }
     
-    
+    //MARK: - Table view Datasource method
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
@@ -27,6 +27,8 @@ class ToDoListViewController: UITableViewController {
         cell.textLabel!.text = itemArray[indexPath.row]
         return cell
     }
+    
+    //MARK: - Tableview Delegate method
     
 }
 
