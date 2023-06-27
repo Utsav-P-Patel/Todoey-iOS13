@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("Error initializing new realm, \(error)")
                 }
         
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         
         return true

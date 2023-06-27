@@ -8,8 +8,9 @@
 
 import UIKit
 import RealmSwift
+import SwiftUI
 
-class CategoryViewController: UITableViewController {
+class CategoryViewController: SwipeTableViewController {
 
     var categoryItemArray: Results<Category>?
 
@@ -30,8 +31,7 @@ class CategoryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         cell.textLabel?.text = categoryItemArray?[indexPath.row].name ?? "No Categories Added yet"
         
@@ -96,5 +96,18 @@ class CategoryViewController: UITableViewController {
         
         tableView.reloadData()
         
+    }
+    //MARK: - Delete data from Swipe
+
+    override func updateModel(at indexPath: IndexPath) {
+        if let categoryForDeletion = self.categoryItemArray?[indexPath.row] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(categoryForDeletion)
+                }
+            } catch {
+                print("")
+            }
+        }
     }
 }

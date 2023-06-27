@@ -6,6 +6,7 @@ target 'Todoey' do
   use_frameworks!
 
   # Pods for Todoey
-    pod 'RealmSwift', '~>10.40.1'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/chameleon', :branch => 'swift5'
+
 
 end
